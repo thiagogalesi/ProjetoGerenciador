@@ -1,8 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
-from django.views.generic import View
 
+def main(request):
+    return HttpResponse('Ola mundo!')
 
-class Agenda(View):
-    def get(self, request, *args, **kwargs):
-        return HttpResponse('Hello, World!')
