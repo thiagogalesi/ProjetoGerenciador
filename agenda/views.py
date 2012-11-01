@@ -1,6 +1,6 @@
 # Create your views here.
 from django.http import HttpResponse
 
-def main(request):
+def index(request):
     return HttpResponse('Ola mundo!')
 
