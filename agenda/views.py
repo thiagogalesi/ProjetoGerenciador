@@ -1,7 +1,7 @@
 # Create your views here.
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from models import ItemAgenda
 from forms import FormItemAgenda
@@ -12,6 +12,10 @@ def index(request):
 def lista(request):
     lista_itens = ItemAgenda.objects.all()
     return render_to_response('lista.html', {'lista_itens': lista_itens})
+
+def item(request, nr_item):
+    item = get_object_or_404(ItemAgenda, id=nr_item)
+    return render_to_response('item.html', {'item': item})
 
 def adiciona(request):
     if request.method == 'POST': # Formulário enviado
