@@ -15,18 +15,20 @@ def lista(request):
 
 def item(request, nr_item):
     item = get_object_or_404(ItemAgenda, id=nr_item)
+    if request.method == 'POST': # Formulário enviado
+        form = FormItemAgenda(request.POST, request.FILES, instance=item)
+        if form.is_valid():
+            form.save()
+            return render_to_response("salvo.html", {})
+
     return render_to_response('item.html', {'item': item})
 
 def adiciona(request):
     if request.method == 'POST': # Formulário enviado
         form = FormItemAgenda(request.POST, request.FILES)
         if form.is_valid():
-        # Formulário válido.
-            dados = form.cleaned_data
-            item = ItemAgenda(data=dados['data'], hora=dados['hora'],
-                    titulo=dados['titulo'], descricao=dados['descricao'])
-            item.save()
-
+        # Formulário válido
+            form.save()
             # Mensagem de formulário cadastrado
             return render_to_response("salvo.html", {})
     else:
