@@ -1,5 +1,5 @@
 from django import forms
-from models import ItemAgenda
+from agenda.models import ItemAgenda
 
 class FormItemAgenda(forms.ModelForm):
     data = forms.DateField(
