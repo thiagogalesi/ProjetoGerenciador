@@ -1,9 +1,9 @@
 # Django settings for gerenciador project.
 import os
 
-ROOTDIR = os.path.realpath(os.path.dirname(__file__))
+ROOTDIR = os.path.realpath(os.path.dirname(os.path.dirname(__file__)))
 
-TEMPLATE_DIR = os.path.join(ROOTDIR, '../templates')
+TEMPLATE_DIR = os.path.join(ROOTDIR, 'templates')
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
