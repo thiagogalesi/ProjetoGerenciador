@@ -6,6 +6,7 @@
 <ul>
 {% for item in lista_itens %}
   <li>
+<a href="/remove/{{item.id}}"><img src="{{ STATIC_URL }}/imagens/lixeira.png" /></a>
     <a href="/item/{{ item.id }}">{{ item.data|date:'d/m/Y' }} - {{ item.titulo }}</a>
   </li>
 {% empty %}

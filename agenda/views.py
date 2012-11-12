@@ -11,7 +11,7 @@ def index(request):
 
 def lista(request):
     lista_itens = ItemAgenda.objects.all()
-    return render_to_response('lista.html', {'lista_itens': lista_itens})
+    return render_to_response('lista.html', {'lista_itens': lista_itens}, context_instance=RequestContext(request))
 
 def item(request, nr_item):
     item = get_object_or_404(ItemAgenda, id=nr_item)
