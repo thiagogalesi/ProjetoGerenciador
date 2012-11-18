@@ -8,3 +8,5 @@ class ItemAgenda(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField()
     usuario = models.ForeignKey(User)
+    participantes = models.ManyToManyField(User, related_name='item_participantes')
+
