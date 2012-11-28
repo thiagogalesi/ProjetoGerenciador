@@ -10,8 +10,13 @@ class ItemAgenda(models.Model):
     usuario = models.ForeignKey(User)
     participantes = models.ManyToManyField(User, related_name='item_participantes')
 
+    def __str__(self):
+        return "Titulo: %s Data/Hora:%s, %s" % (
+            self.titulo, self.data.strftime('%d/%m/%Y'), self.hora)
+
 def envia_email(**kwargs):
-    print ("Enviando email")
+    #print ("Enviando email")
+    pass
 
 models.signals.post_save.connect(envia_email,
         sender=ItemAgenda,
